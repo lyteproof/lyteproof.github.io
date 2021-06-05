@@ -1,0 +1,2001 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Hello Bulma!</title>
+        <link rel="stylesheet" href="css/bulma.min.css">
+        <script src="js/jquery.js"></script>
+        <script src="https://kit.fontawesome.com/7ad7d988c2.js" crossorigin="anonymous"></script>
+
+        <style>
+            input[type='number'] {
+                width: 65px;
+                text-align: center;
+            }
+
+            input[type='text'] {
+                text-align: center;
+            }
+
+            input[type='number']::-webkit-inner-spin-button, input[type='number']::-webkit-outer-spin-button {
+                opacity: 1;
+            }
+        </style>
+    </head>
+
+    <body>
+        <section class="section">
+            <div class="container">
+                <div class="columns">
+                    <div class="column">
+                        <div class="content">
+                            <h3>Drop legend:</h3>
+                            <div class="tags">
+                                <span class="tag is-link">Unknown</span>
+                                <span class="tag is-primary">Guaranteed</span>
+                                <span class="tag is-success">Common</span>
+                                <span class="tag is-warning">Uncommon</span>
+                                <span class="tag is-danger">Rare</span>
+                                <span class="tag is-dark">Very Rare</span>
+                                <span class="tag is-light">Extra</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="content">
+                            <h3>Notes:</h3>
+                            <ul>
+                                <li>Unlike Aceship and similar calculators, this one does not assume that you will be converting up when calculating the amount of higher tier materials you "have". You will need to convert as you go to get accurate counts.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Device row 1 -->
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/damaged-device.png" />
+                                    </p>
+                                    
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Damaged Device</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-primary">2-3</span>
+                                                    <span class="tag is-primary is-light">fast</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-warning">1-5</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-light">2-6</span>
+                                                    <span class="tag is-light">value</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT1Device" type="number" size="1" placeholder="Need " onchange="evalT1Device()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT1Device" type="number" size="1" placeholder="Have " onchange="evalT1Device()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT1Device" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of device row -->
+
+                <!-- Keton row 1 -->
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/keton-colloid.png" />
+                                    </p>
+                                    
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Keton Colloid</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-dark">4-5</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-dark">5-8</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT4Keton" type="number" size="1" placeholder="Need " onchange="evalT4Keton()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT4Keton" type="number" size="1" placeholder="Have " onchange="evalT4Keton()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT4Keton" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of keton row -->
+
+                <!-- Iron row 1 -->
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/oriron.png" />
+                                    </p>
+                                    
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Oriron</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-primary">S3-3</span>
+                                                    <span class="tag is-primary is-light">fast</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-success">6-1</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-warning">2-1</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-warning">5-7</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-light">S4-1</span>
+                                                    <span class="tag is-light">value</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT2Iron" type="number" size="1" placeholder="Need " onchange="evalT2Iron()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT2Iron" type="number" size="1" placeholder="Have " onchange="evalT2Iron()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT2Iron" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/oriron-cluster.png" />
+                                    </p>
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Oriron Cluster</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-danger">2-8</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-danger">S4-1</span>
+                                                    <span class="tag is-danger is-light">value + fast</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-danger">5-5</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-danger">6-10</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT3Iron" type="number" size="1" placeholder="Need " onchange="evalT3Iron()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT3Iron" type="number" size="1" placeholder="Have " onchange="evalT3Iron()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT3Iron" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/oriron-block.png" />
+                                    </p>
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Oriron Block</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-dark">S4-1</span>
+                                                    <span class="tag is-light">value*</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-dark">5-5</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT4Iron" type="number" size="1" placeholder="Need " onchange="evalT4Iron()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT4Iron" type="number" size="1" placeholder="Have " onchange="evalT4Iron()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT4Iron" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of iron row 1 -->
+
+                <!-- Iron row 2 -->
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/polymerization-preparation.png" />
+                                    </p>
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Polymerization Preparation</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-light">Crafting only</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT5Polymer" type="number" size="1" placeholder="Need " onchange="evalT5Polymer()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT5Polymer" type="number" size="1" placeholder="Have " onchange="evalT5Polymer()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT5Polymer" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of iron row 2 -->
+
+                <!-- Ester row 1 -->
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/polyester.png" />
+                                    </p>
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Polyester</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-primary">S3-2</span>
+                                                    <span class="tag is-primary is-light">fast</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-primary">S5-3</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-primary">6-9</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-success">1-8</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-danger">6-5</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-light">3-2</span>
+                                                    <span class="tag is-light">value</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT2Ester" type="number" size="1" placeholder="Need " onchange="evalT2Ester()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT2Ester" type="number" size="1" placeholder="Have " onchange="evalT2Ester()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT2Ester" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of ester row -->
+
+                <!-- Sugar row 1 -->
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/sugar.png" />
+                                    </p>
+                                    
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Sugar</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-primary">S3-1</span>
+                                                    <span class="tag is-primary is-light">fast</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-primary">S5-4</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-success">2-2</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-warning">5-3</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-light">4-2</span>
+                                                    <span class="tag is-light">value</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT2Sugar" type="number" size="1" placeholder="Need " onchange="evalT2Sugar()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT2Sugar" type="number" size="1" placeholder="Have " onchange="evalT2Sugar()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT2Sugar" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of sugar row -->
+
+                <!-- Orirock row 1 -->
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/orirock.png" />
+                                    </p>
+                                    
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Orirock</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-primary">0-9</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-primary">S2-5</span>
+                                                    <span class="tag is-primary is-light">fast</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-light">2-6</span>
+                                                    <span class="tag is-light">value</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT1Rock" type="number" size="1" placeholder="Need " onchange="evalT1Rock()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT1Rock" type="number" size="1" placeholder="Have " onchange="evalT1Rock()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT1Rock" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/orirock-cube.png" />
+                                    </p>
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Orirock Cube</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-primary">1-7</span>
+                                                    <span class="tag is-primary is-light">value + fast</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-primary">S2-12</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-primary">S5-1</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-primary">S6-2</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-warning">S3-7</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-warning">5-10</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT2Rock" type="number" size="1" placeholder="Need " onchange="evalT2Rock()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT2Rock" type="number" size="1" placeholder="Have " onchange="evalT2Rock()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT2Rock" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/orirock-concentration.png" />
+                                    </p>
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Orirock Concentration</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-dark">4-6</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT4Rock" type="number" size="1" placeholder="Need " onchange="evalT4Rock()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT4Rock" type="number" size="1" placeholder="Have " onchange="evalT4Rock()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT4Rock" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- 
+
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/orirock-cluster.png" />
+                                    </p>
+                                    
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Orirock Cluster</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-warning">6-5</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-danger">2-4</span>
+                                                    <span class="tag is-danger is-light">fast</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-danger">4-6</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-danger">5-1</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" type="number" size="1" placeholder="Have ">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" type="number" size="1" placeholder="Need ">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div> -->
+                </div>
+                <!-- End of first row -->
+
+                <!-- Second row -->
+                <!-- <div class="columns is-variable is-3">
+                    
+                </div> -->
+                <!-- End of second row -->
+
+                <!-- RMA row 1 -->
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/rma70-12.png" />
+                                    </p>
+                                    
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>RMA70-12</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-link">7-10</span>
+                                                    <span class="tag is-link is-light">fast</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-danger">2-10</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-danger">4-9</span>
+                                                    <span class="tag is-danger is-light">value</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-danger">5-9</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-danger">6-15</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT3RMA" type="number" size="1" placeholder="Need " onchange="evalT3RMA()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT3RMA" type="number" size="1" placeholder="Have " onchange="evalT3RMA()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT3RMA" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/rma70-24.png" />
+                                    </p>
+                                    
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>RMA70-24</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-dark">4-9</span>
+                                                    <span class="tag is-light">value*</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-dark">6-15</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT4RMA" type="number" size="1" placeholder="Need " onchange="evalT4RMA()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT4RMA" type="number" size="1" placeholder="Have " onchange="evalT4RMA()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT4RMA" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/d32-steel.png" />
+                                    </p>
+                                    
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>D32 Steel</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-light">Crafting only</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT5Steel" type="number" size="1" placeholder="Need " onchange="evalT5Steel()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT5Steel" type="number" size="1" placeholder="Have " onchange="evalT5Steel()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT5Steel" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of RMA row -->
+
+                <!-- Stone row 1 -->
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/grindstone.png" />
+                                    </p>
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Grindstone</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-link">7-17</span>
+                                                    <span class="tag is-link is-light">value</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-danger">3-3</span>
+                                                    <span class="tag is-danger is-light">fast</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-danger">4-8</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-danger">5-7</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-danger">6-14</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT3Stone" type="number" size="1" placeholder="Need " onchange="evalT3Stone()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT3Stone" type="number" size="1" placeholder="Have " onchange="evalT3Stone()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT3Stone" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/grindstone-pentahydrate.png" />
+                                    </p>
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Grindstone Pentahydrate</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-dark">4-8</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT4Stone" type="number" size="1" placeholder="Need " onchange="evalT4Stone()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT4Stone" type="number" size="1" placeholder="Have " onchange="evalT4Stone()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT4Stone" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of stone row -->
+
+                <!-- Manganese row 1 -->
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/manganese-ore.png" />
+                                    </p>
+                                    
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Manganese Ore</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-danger">3-2</span>
+                                                    <span class="tag is-danger is-light">fast</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-danger">4-7</span>
+                                                    <span class="tag is-danger is-light">value</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-danger">5-6</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-danger">6-2</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT3Mn" type="number" size="1" placeholder="Need " onchange="evalT3Mn()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT3Mn" type="number" size="1" placeholder="Have " onchange="evalT3Mn()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT3Mn" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of manganese row -->
+
+                <!-- Kohl row 1 -->
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/loxic-kohl.png" />
+                                    </p>
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Loxic Kohl</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-warning">6-11</span>
+                                                    <span class="tag is-warning is-light">fast</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-danger">2-9</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-danger">4-4</span>
+                                                    <span class="tag is-danger is-light">value</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-danger">5-4</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT3Kohl" type="number" size="1" placeholder="Need " onchange="evalT3Kohl()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT3Kohl" type="number" size="1" placeholder="Have " onchange="evalT3Kohl()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT3Kohl" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/bipolar-nanoflake.png" />
+                                    </p>
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Bipolar Nanoflake</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-light">Crafting only</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT5Flake" type="number" size="1" placeholder="Need " onchange="evalT5Flake()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT5Flake" type="number" size="1" placeholder="Have " onchange="evalT5Flake()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT5Flake" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of kohl row -->
+
+                <!-- Alloy row 1 -->
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/incandescent-alloy-block.png" />
+                                    </p>
+                                    
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Incandescent Alloy Block</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-dark">S5-8</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-dark">6-12</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT4Alloy" type="number" size="1" placeholder="Need " onchange="evalT4Alloy()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT4Alloy" type="number" size="1" placeholder="Have " onchange="evalT4Alloy()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT4Alloy" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of alloy row -->
+
+                <!-- Gel row 1 -->
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/coagulating-gel.png" />
+                                    </p>
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Coagulating Gel</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags has-addons">
+                                                    <span class="tag is-link">JT8-2</span>
+                                                    <span class="tag is-link is-light">value + fast</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-danger">S4-10</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-danger">S5-7</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT3Gel" type="number" size="1" placeholder="Need " onchange="evalT3Gel()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT3Gel" type="number" size="1" placeholder="Have " onchange="evalT3Gel()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT3Gel" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/polymerized-gel.png" />
+                                    </p>
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Polymerized Gel</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-dark">S5-7</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT4Gel" type="number" size="1" placeholder="Need " onchange="evalT4Gel()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT4Gel" type="number" size="1" placeholder="Have " onchange="evalT4Gel()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT4Gel" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of gel row -->
+
+                <!-- Skill summary row -->
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/skill-summary-1.png" />
+                                    </p>
+                                    
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Skill Summary - 1</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-primary">CA-1</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-primary">CA-2</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-primary">CA-3</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-primary">CA-4</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-primary">CA-5</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-primary">1-10</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT2Summary" type="number" size="1" placeholder="Need " onchange="evalT2Summary()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT2Summary" type="number" size="1" placeholder="Have " onchange="evalT2Summary()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT2Summary" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/skill-summary-2.png" />
+                                    </p>
+                                    
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Skill Summary - 2</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-primary">CA-3</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-primary">CA-4</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-primary">CA-5</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT3Summary" type="number" size="1" placeholder="Need " onchange="evalT3Summary()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT3Summary" type="number" size="1" placeholder="Have " onchange="evalT3Summary()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT3Summary" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/skill-summary-3.png" />
+                                    </p>
+                                    
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Skill Summary - 3</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-primary">CA-4</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-primary">CA-5</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT4Summary" type="number" size="1" placeholder="Need " onchange="evalT4Summary()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT4Summary" type="number" size="1" placeholder="Have " onchange="evalT4Summary()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT4Summary" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of skill summary -->
+
+                <!-- Defender row 1 -->
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/defender-chip.png" />
+                                    </p>
+                                    
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Defender Chip</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-success">PR-A-1</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT3Defender" type="number" size="1" placeholder="Need " onchange="evalT3Defender()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT3Defender" type="number" size="1" placeholder="Have " onchange="evalT3Defender()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT3Defender" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="column is-4">
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128 is-flex is-align-items-center">
+                                        <img src="img/defender-dualchip.png" />
+                                    </p>
+                                    
+                                </figure>
+            
+                                <div class="media-content">
+                                    <div class="content">
+                                        <strong>Defender Dualchip</strong>
+
+                                        <div class="field is-grouped is-grouped-multiline">
+                                            <div class="control">
+                                                <div class="tags">
+                                                    <span class="tag is-light">Crafting only</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <input class="input is-small" id="needT5Defender" type="number" size="1" placeholder="Need " onchange="evalT5Defender()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="haveT5Defender" type="number" size="1" placeholder="Have " onchange="evalT5Defender()">
+                                            </div>
+
+                                            <div class="control">
+                                                <input class="input is-small" id="lackT5Defender" type="text" value="0" size="1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of defender row -->
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p>Images and material values courtesy of <strong>Gamepress</strong>. Thanks also to <strong>Aceship</strong> for inspiration and coding reference.</strong></p>
+            </div>
+        </footer>
+
+        <script>
+            // return;
+            window.onload = function() {
+                document.getElementById("needT1Device").value = 4;
+                document.getElementById("haveT1Device").value = 15;
+
+                document.getElementById("needT4Keton").value = 4;
+                // document.getElementById("haveT4Keton").value = 0;
+
+                document.getElementById("needT2Iron").value = 4;
+                document.getElementById("haveT2Iron").value = 2;
+                document.getElementById("needT3Iron").value = 3;
+                document.getElementById("haveT3Iron").value = 10;
+                document.getElementById("needT4Iron").value = 4;
+                // document.getElementById("haveT4Iron").value = 0;
+                document.getElementById("needT5Polymer").value = 6 + 4;
+                document.getElementById("haveT5Polymer").value = 1;
+
+                document.getElementById("needT2Ester").value = 4 + 5;
+                document.getElementById("haveT2Ester").value = 109;
+
+                document.getElementById("needT2Sugar").value = 5;
+                document.getElementById("haveT2Sugar").value = 11;
+                
+                document.getElementById("needT1Rock").value = 6;
+                document.getElementById("haveT1Rock").value = 41;
+                document.getElementById("needT2Rock").value = 12;
+                document.getElementById("haveT2Rock").value = 4;
+                document.getElementById("needT4Rock").value = 10;
+                // document.getElementById("haveT4Rock").value = 0;
+
+                document.getElementById("needT3RMA").value = 5;
+                document.getElementById("haveT3RMA").value = 5;
+                document.getElementById("needT4RMA").value = 4;
+                // document.getElementById("haveT4RMA").value = 0;
+                document.getElementById("needT5Steel").value = 6;
+                // document.getElementById("haveT5Steel").value = 0;
+
+                document.getElementById("needT3Stone").value = 5;
+                document.getElementById("haveT3Stone").value = 3;
+                document.getElementById("needT4Stone").value = 4;
+                // document.getElementById("haveT4Stone").value = 0;
+
+                document.getElementById("needT3Mn").value = 5;
+                // document.getElementById("haveT3Mn").value = 0;
+
+                document.getElementById("needT3Kohl").value = 7;
+                // document.getElementById("haveT3Kohl").value = 0;
+                document.getElementById("needT5Flake").value = 6;
+                document.getElementById("haveT5Flake").value = 6;
+
+                document.getElementById("needT4Alloy").value = 7 + 4 + 6 + 7;
+                // document.getElementById("haveT4Alloy").value = 0;
+
+                document.getElementById("needT3Gel").value = 5;
+                document.getElementById("haveT3Gel").value = 50;
+                document.getElementById("needT4Gel").value = 4 + 6 + 7 + 9;
+                document.getElementById("haveT4Gel").value = 2;
+
+                document.getElementById("needT2Summary").value = 5 + 5;
+                document.getElementById("haveT2Summary").value = 145;
+                document.getElementById("needT3Summary").value = 8 + 8 + 8;
+                document.getElementById("haveT3Summary").value = 2;
+                document.getElementById("needT4Summary").value = 8 + 8 + 12 + 15 + 8 + 12 + 15 + 8 + 12 + 15;
+                // document.getElementById("haveT4Summary").value = 0;
+
+                document.getElementById("needT3Defender").value = 5;
+                document.getElementById("haveT3Defender").value = 1;
+                document.getElementById("needT5Defender").value = 4;
+                // document.getElementById("haveT5Defender").value = 0;
+
+                evalT1Device();
+                evalT4Keton();
+                evalT5Polymer();
+                evalT2Ester();
+                evalT2Sugar();
+                evalT2Rock();
+                evalT5Steel();
+                evalT3Mn();
+                evalT3Kohl();
+                evalT5Flake();
+                evalT4Gel();
+                evalT4Summary();
+                evalT3Defender();
+                evalT5Defender();
+            }
+        </script>
+
+        <script>
+            function evalT1Device() {
+                let need = document.getElementById("needT1Device").value;
+                let have = document.getElementById("haveT1Device").value;
+
+                document.getElementById("lackT1Device").value = need - have < 0 ? 0 : need - have;
+            }
+
+            function evalT4Keton() {
+                let t4 = parseInt(document.getElementById("needT4Keton").value);
+                let polymer = parseInt(document.getElementById("needT5Polymer").value) * 1;
+
+                let need = t4 + polymer;
+                let have = document.getElementById("haveT4Keton").value;
+
+                document.getElementById("lackT4Keton").value = need - have < 0 ? 0 : need - have;
+
+                // evalT3Keton();
+                // evalT3Sugar();
+                evalT3Mn();
+            }
+
+            function evalT2Iron() {
+                let t2 = parseInt(document.getElementById("needT2Iron").value);
+                let t3 = parseInt(document.getElementById("lackT3Iron").value) * 4;
+
+                let need = t2 + t3;
+                let have = document.getElementById("haveT2Iron").value;
+
+                document.getElementById("lackT2Iron").value = need - have < 0 ? 0 : need - have;
+            }
+
+            function evalT3Iron() {
+                let t3 = parseInt(document.getElementById("needT3Iron").value);
+                let t4 = parseInt(document.getElementById("lackT4Iron").value) * 2;
+                let stone = parseInt(document.getElementById("lackT4Stone").value) * 1;
+                let gel = parseInt(document.getElementById("lackT4Gel").value) * 1;
+
+                let need = t3 + t4 + stone + gel;
+                let have = document.getElementById("haveT3Iron").value;
+
+                document.getElementById("lackT3Iron").value = need - have < 0 ? 0 : need - have;
+
+                evalT2Iron();
+            }
+
+            function evalT4Iron() {
+                let t4 = parseInt(document.getElementById("needT4Iron").value);
+                let polymer = parseInt(document.getElementById("lackT5Polymer").value) * 1;
+
+                let need = t4 + polymer;
+                let have = document.getElementById("haveT4Iron").value;
+
+                document.getElementById("lackT4Iron").value = need - have < 0 ? 0 : need - have;
+
+                evalT3Iron();
+                // evalT3Device();
+                // evalT3Ester();
+            }
+
+            function evalT5Polymer() {
+                let need = document.getElementById("needT5Polymer").value;
+                let have = document.getElementById("haveT5Polymer").value;
+
+                document.getElementById("lackT5Polymer").value = need - have < 0 ? 0 : need - have;
+
+                evalT4Rock();
+                evalT4Iron();
+                evalT4Keton();
+            }
+
+            function evalT2Ester() {
+                let need = document.getElementById("needT2Ester").value;
+                let have = document.getElementById("haveT2Ester").value;
+
+                document.getElementById("lackT2Ester").value = need - have < 0 ? 0 : need - have;
+            }
+
+            function evalT2Sugar() {
+                let need = document.getElementById("needT2Sugar").value;
+                let have = document.getElementById("haveT2Sugar").value;
+
+                document.getElementById("lackT2Sugar").value = need - have < 0 ? 0 : need - have;
+            }
+
+            function evalT1Rock() {
+                let t1 = parseInt(document.getElementById("needT1Rock").value);
+                let t2 = parseInt(document.getElementById("lackT2Rock").value) * 3;
+
+                let need = t1 + t2;
+                let have = document.getElementById("haveT1Rock").value;
+
+                document.getElementById("lackT1Rock").value = need - have < 0 ? 0 : need - have;
+            }
+
+            function evalT2Rock() {
+                let need = document.getElementById("needT2Rock").value;
+                let have = document.getElementById("haveT2Rock").value;
+
+                document.getElementById("lackT2Rock").value = need - have < 0 ? 0 : need - have;
+
+                evalT1Rock();
+            }
+
+            function evalT4Rock() {
+                let t4 = parseInt(document.getElementById("needT4Rock").value);
+                let polymer = parseInt(document.getElementById("lackT5Polymer").value) * 1;
+
+                let need = t4 + polymer;
+                let have = document.getElementById("haveT4Rock").value;
+
+                document.getElementById("lackT4Rock").value = need - have < 0 ? 0 : need - have;
+
+                // evalT3Rock();
+            }
+
+            function evalT3RMA() {
+                let t3 = isNaN(parseInt(document.getElementById("needT3RMA").value)) ? 0 : parseInt(document.getElementById("needT3RMA").value);
+                let t4 = parseInt(document.getElementById("lackT4RMA").value) * 1;
+
+                let need = t3 + t4;
+                let have = document.getElementById("haveT3RMA").value;
+
+                document.getElementById("lackT3RMA").value = need - have < 0 ? 0 : need - have;
+            }
+
+            function evalT4RMA() {
+                let t4 = parseInt(document.getElementById("needT4RMA").value);
+                let steel = parseInt(document.getElementById("lackT5Steel").value) * 1;
+
+                let need = t4 + steel;
+                let have = document.getElementById("haveT4RMA").value;
+
+                document.getElementById("lackT4RMA").value = need - have < 0 ? 0 : need - have;
+
+                evalT3RMA();
+                // evalT3Rock();
+                // evalT3Keton();
+            }
+
+            function evalT5Steel() {
+                let need = document.getElementById("needT5Steel").value;
+                let have = document.getElementById("haveT5Steel").value;
+
+                document.getElementById("lackT5Steel").value = need - have < 0 ? 0 : need - have;
+
+                // evalT4Mn();
+                evalT4Stone();
+                evalT4RMA();
+            }
+
+            function evalT3Stone() {
+                let t3 = parseInt(document.getElementById("needT3Stone").value);
+                let t4 = parseInt(document.getElementById("lackT4Stone").value) * 1;
+                let alloy = parseInt(document.getElementById("lackT4Alloy").value) * 1;
+
+                let need = t3 + t4 + alloy;
+                let have = document.getElementById("haveT3Stone").value;
+
+                document.getElementById("lackT3Stone").value = need - have < 0 ? 0 : need - have;
+            }
+
+            function evalT4Stone() {
+                let t4 = parseInt(document.getElementById("needT4Stone").value);
+                let steel = parseInt(document.getElementById("lackT5Steel").value) * 1;
+
+                let need = t4 + steel;
+                let have = document.getElementById("haveT4Stone").value;
+
+                document.getElementById("lackT4Stone").value = need - have < 0 ? 0 : need - have;
+
+                evalT3Stone();
+                evalT3Iron();
+                // evalT3Device();
+            }
+
+            function evalT3Mn() {
+                let t3 = parseInt(document.getElementById("needT3Mn").value);
+                let keton = parseInt(document.getElementById("lackT4Keton").value) * 1;
+
+                let need = t3 + keton;
+                let have = document.getElementById("haveT3Mn").value;
+
+                document.getElementById("lackT3Mn").value = need - have < 0 ? 0 : need - have;
+            }
+
+            function evalT3Kohl() {
+                let need = document.getElementById("needT3Kohl").value;
+                let have = document.getElementById("haveT3Kohl").value;
+
+                document.getElementById("lackT3Kohl").value = need - have < 0 ? 0 : need - have;
+            }
+
+            function evalT5Flake() {
+                let need = document.getElementById("needT5Flake").value;
+                let have = document.getElementById("haveT5Flake").value;
+
+                document.getElementById("lackT5Flake").value = need - have < 0 ? 0 : need - have;
+
+                // evalT4Device();
+                // evalT4Kohl();
+            }
+
+            function evalT4Alloy() {
+                let need = document.getElementById("needT4Alloy").value;
+                let have = document.getElementById("haveT4Alloy").value;
+
+                document.getElementById("lackT4Alloy").value = need - have < 0 ? 0 : need - have;
+
+                // evalT3Device();
+                evalT3Stone();
+                // evalT3Alloy();
+            }
+
+            function evalT3Gel() {
+                let t3 = parseInt(document.getElementById("needT3Gel").value);
+                let t4 = parseInt(document.getElementById("lackT4Gel").value) * 1;
+
+                let need = t3 + t4;
+                let have = document.getElementById("haveT3Gel").value;
+
+                document.getElementById("lackT3Gel").value = need - have < 0 ? 0 : need - have;
+            }
+
+            function evalT4Gel() {
+                let need = document.getElementById("needT4Gel").value;
+                let have = document.getElementById("haveT4Gel").value;
+
+                document.getElementById("lackT4Gel").value = need - have < 0 ? 0 : need - have;
+
+                evalT3Iron();
+                evalT3Gel();
+                // evalT3Alloy();
+            }
+
+            function evalT2Summary() {
+                let t2 = parseInt(document.getElementById("needT2Summary").value);
+                let t3 = parseInt(document.getElementById("lackT3Summary").value) * 3;
+
+                let need = t2 + t3;
+                let have = document.getElementById("haveT2Summary").value;
+
+                document.getElementById("lackT2Summary").value = need - have < 0 ? 0 : need - have;
+            }
+
+            function evalT3Summary() {
+                let t3 = parseInt(document.getElementById("needT3Summary").value);
+                let t4 = parseInt(document.getElementById("lackT4Summary").value) * 3;
+
+                let need = t3 + t4;
+                let have = document.getElementById("haveT3Summary").value;
+
+                document.getElementById("lackT3Summary").value = need - have < 0 ? 0 : need - have;
+
+                evalT2Summary();
+            }
+
+            function evalT4Summary() {
+                let need = document.getElementById("needT4Summary").value;
+                let have = document.getElementById("haveT4Summary").value;
+
+                document.getElementById("lackT4Summary").value = need - have < 0 ? 0 : need - have;
+
+                evalT3Summary();
+            }
+
+            function evalT3Defender() {
+                let need = document.getElementById("needT3Defender").value;
+                let have = document.getElementById("haveT3Defender").value;
+
+                document.getElementById("lackT3Defender").value = need - have < 0 ? 0 : need - have;
+            }
+
+            function evalT5Defender() {
+                let need = document.getElementById("needT5Defender").value;
+                let have = document.getElementById("haveT5Defender").value;
+
+                document.getElementById("lackT5Defender").value = need - have < 0 ? 0 : need - have;
+
+                // evalT4Chip();
+                // evalT4Defender();
+            }
+        </script>
+    </body>
+</html>

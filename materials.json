@@ -1,0 +1,11 @@
+{
+    "name": "Orirock",
+    "desc1": "A rock mined from the ground. Can be used for a variety of upgrades and for production in the Factory.",
+    "desc2": "Rich in organics, it is commonly seen in regions where Originium has completely volatilized. Compared to Originium, it is easier to exploit.",
+    "stages": [
+        {
+            "stage": "0-9",
+            "droprate": "Guaranteed"
+        }
+    ]
+}
